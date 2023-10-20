@@ -1,0 +1,33 @@
+<%- include("header", {title: title}); %>
+
+<h1>Welcome to Project Pulse</h1>
+<h2>Logged in as Team Member</h2>
+
+<% if (locals.reports) { %>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Member</th>
+        <th>Project</th>
+        <th>Deadline</th>
+        <th>Status</th>
+    </tr>
+<% for (const row of reports) { %>
+    <!--
+        if row.status == read -> mark as green...
+    -->
+    <tr>
+        <td><a href="/member/view/<%= row.id %>"><%= row.id %></a></td>
+        <td><%= row.member %></td>
+        <td><%= row.project %></td>
+        <td><%= row.deadline %></td>
+        <td><%= row.status %></td>
+    </tr>
+<% }; %>
+</table>
+<% }; %>
+
+<pre><%#= JSON.stringify(reports, null, 4) %></pre>
+
+
+<%- include("footer"); %>

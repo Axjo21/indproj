@@ -1,0 +1,55 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<title><%= title %></title>
+<link rel="stylesheet" href="/style/style.css">
+<script src="https://use.fontawesome.com/0aee473986.js"></script>
+<link rel="icon" href="/favicon.ico">
+
+<header>
+    <h1 id="loginH3">Project Pulse</h1>
+</header>
+
+<main class="main">
+
+    <% if (locals.error) { %>
+        <div class="errorMsg">
+            Login failed. Try again!
+        </div>
+    <% }; %>
+
+    <form id="loginForm" method="post" action="/authenticate">
+        <div class="login-header">
+            <img src="favicon.ico" alt="Pulse">
+            <h1>Welcome</h1>
+            <h3>Please login to continue</h3>
+        </div>
+        <div class="form-container">
+            <label for="username"><b>Username</b></label>
+            <input id="username" type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <label for="password"><b>Password</b></label>
+            <input id="password" type="password" placeholder="Enter Password" name="password" required>
+            <br>
+        </div>
+        <input class="submit" type="submit" name="doit" value="Login">
+        <br>
+        <br>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        <!-- 
+            <div class="container">
+                <span class="psw"><a href="#">Forgot password?</a></span>
+            </div>
+        -->
+    </form> 
+
+
+</main>
+
+<footer>
+    <p> &copy; Project Pulse Login page</p>
+</footer>
+
+<!-- <script type="text/javascript" src="/js/main.js"></script> -->

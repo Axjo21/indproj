@@ -1,0 +1,55 @@
+
+
+
+
+@media (max-width: 500px) {
+    body .main {
+        margin: auto;
+        max-width: 100%;
+        min-height: 1000px;
+    }
+    body table {
+        margin: 0;
+        max-width: 100%;
+    }
+    table th{
+        border: 1px solid #ccc;
+        margin: 10px;
+        font-size: 0.8em;
+    }
+    table td{
+        border: 1px solid #ccc;
+        margin: 10px;
+        font-size: 0.8em;
+    }
+    table tr {
+        max-width: 10%;
+    }
+
+    header #logoutBtn {
+        margin: 0;
+        float: right;
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 1rem;
+        color: rgb(195, 78, 78);
+    }
+
+    .main #loginForm {
+        max-width: 100%;
+        top:65%;
+        left:0%;
+    }
+
+    body #reportContent {
+        position: relative;
+        left: 10%;
+        max-width: 80%;
+    }
+
+    body .submitCreate {
+        float: left;
+        width: 100%;
+        max-width: 90%;
+    }
+}

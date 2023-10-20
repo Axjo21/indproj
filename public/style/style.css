@@ -1,0 +1,234 @@
+@import "responsive.css";
+
+
+body, html {
+    height: 100%;
+    margin: 0px auto;
+    background: #ffffff;
+}
+
+header {
+    background-color: #af5050;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+#logoutBtn {
+    margin: 0;
+    float: right;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 1.5rem;
+    color: rgb(195, 78, 78);
+}
+
+#loginH3 {
+    color: white;
+}
+
+footer {
+    height: 10%;
+    background-color: #af5050;
+    color: #fff;
+}
+
+.main {
+    margin: auto; 
+    max-width: 65%;
+    min-height: 1200px;
+}
+
+h1, h2, h4 {
+    text-align: center;
+}
+
+h3 {
+    padding: 1em;
+    padding-left: 0em;
+    text-decoration: underline;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(0, 0, 0);
+}
+
+.errorMsg {
+    background-color: yellow;
+    border: solid;
+    border-color: rgb(60, 60, 60);
+    padding: 1em;
+    justify-content: center;
+}
+
+#username {
+    padding: 1em;
+}
+
+#password {
+    padding: 1em;
+}
+
+#csvFile {
+    padding: 1em;
+    font-size: 1.1em;
+}
+
+.submit {
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 1.1em;
+}
+
+.submitCreate {
+    float: right;
+    width: 20%;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 1.1em;
+}
+
+#loginForm {
+    position: absolute;
+    float: left;
+    top:50%;
+    left: 35%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    box-shadow: 0px 5px 5px #ccc;
+    border-radius: 5px;
+    border-top: 1px solid #e9e9e9;
+}
+
+#loginForm, input {
+    margin: 1em;
+}
+
+.login-header {
+    text-align: center;
+}
+
+.login-header img {
+    width: 10%;
+}
+
+.form-container {
+    width: 80%;
+    float: left;
+    margin-left: 16%
+}
+
+.formLabel {
+    font-size: 2em;
+}
+
+.membersTable {
+    background-color: #fff;
+    box-shadow: 0px 5px 5px #ccc;
+    border-radius: 5px;
+    border-top: 1px solid #e9e9e9;
+}
+
+.createForm{
+    width: 65%;
+    margin-left: 15%;
+    padding: 2em;
+    background-color: #fff;
+    box-shadow: 0px 5px 5px #ccc;
+    border-radius: 5px;
+    border-top: 1px solid #e9e9e9;
+}
+
+#projectName {
+    padding: 1.5em;
+}
+
+#projectSummary {
+    padding: 1.5em;
+    padding-right: 20em;
+}
+
+table {
+    border: 1px solid #ccc;
+    margin: 10px;
+    width: 100%;
+}
+
+table a {
+    color: black;
+}
+
+
+.label-left label {
+    padding: 10px;
+    margin: 10px;
+}
+
+#id {
+    padding: 10px;
+    margin: 5px;
+    margin-left: 6.5%;
+}
+#name {
+    padding: 10px;
+    margin: 5px;
+    margin-left: 3%;
+}
+#balance {
+    padding: 10px;
+    margin: 5px;
+    margin-left: 1%;
+}
+#submit {
+    padding: 10px;
+    margin: 5px;
+    margin-left: 2%;
+}
+th {
+    border-bottom: 1px solid #999;
+    padding: 0.2em;
+    font-size: 1.5em;
+}
+
+td {
+    padding: 0.6em;
+    font-size: 1.3em;
+    border: solid;
+    border-color: rgb(220, 220, 220);
+}
+
+td a {
+    color: rgb(179, 116, 29);
+}
+
+.right {
+    text-align: right;
+}
+
+tr:hover {
+    background-color: #eee;
+}
+
+.members {
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+.membersContent {
+    width: 100%;
+}
+
+
+.reportDiv {
+    max-width: 95%;
+    padding: 2em;
+    border: solid rgb(195, 195, 195); 
+}

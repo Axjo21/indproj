@@ -1,0 +1,42 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show Single Report</h1>
+
+
+<% if (locals.report) { %>
+<%= console.log(report) %>
+<table>
+    <tr>
+        <th>Member</th>
+        <th>Project</th>
+        <th>Deadline</div></th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td><%= report[0].member %></td>
+        <td><%= report[0].project %></td>
+        <td><%= report[0].deadline %></td>
+        <td><%= report[0].status %></td>
+    </tr>
+</table>
+<% }; %>
+
+<% if (report[0].status == "Submitted") { %>
+<h2>Report Id: <%= report[0].id %> </h2>
+<div class="reportDiv">
+    <td><%= report[0].content %></td>
+</div>
+<% }; %>
+
+<% if (report[0].status == "Pending") { %>
+<form method="post" action="/member/submit/<%= report[0].id %>">
+    <div class="submitReportForm">
+        <label for="reportContent"><b><h2>Write and submit your report below!</h2></b></label><br>
+        <textarea id="reportContent" placeholder="<%= report[0].content %>" name="reportContent" rows="20" cols="80" required>
+        </textarea><br>
+        <input class="submitCreate" type="submit" name="doit" value="Submit Report">
+    </div>
+</form>
+<% }; %>
+
+<%- include("footer"); %>

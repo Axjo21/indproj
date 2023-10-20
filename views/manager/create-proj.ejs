@@ -1,0 +1,72 @@
+<%- include("header", {title: title}); %>
+
+<h1>Create new Project</h1>
+
+<table class="membersTable">
+    <form method="post" action="/manager/init-project">
+        <div class="createForm">
+            <input class="submitCreate" type="submit" name="doit" value="Create Project">
+            <br>
+            <h3>Name your project and add a description!</h3>
+            <label for="projectName"><b>Project Name</b></label>
+            <input id="projectName" type="text" placeholder="Enter Project Name" name="projectName" required>
+            <br>
+            <label for="projectSummary"><b>Description</b></label>
+            <input id="projectSummary" type="text" placeholder="Tell something about the project" name="projectSummary" required>
+            <br>
+            <h3>Select the projects start and end dates!</h3>
+            <label for="startDate"><b>Start date:</b></label>
+            <input type="date" id="startDate" name="projectStart" value="2023-10-20" min="2023-01-01" max="2024-12-31" required/>
+            <br>
+            <label for="endData"><b>End date:</b></label>
+            <input type="date" id="endDate" name="projectEnd" value="2023-11-20" min="2023-02-01" max="2024-12-31" required/>
+            <br>
+            <h3>Select a report frequency to automatically create due dates for reports!</h3>
+            <label for="reportFrequency"><b>Choose report frequency:</b></label>
+            <select name="reportFrequency" id="reportFrequency">
+                <option value="">Please choose an option</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="fortnightly">Fortnightly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+            <br>
+            <h3>You can also select custom dates for reports.</h3>
+            <label for="customDate1"><b>Custom date 1:</b></label>
+            <input type="date" id="customDate1" name="customDate1" value="" min="2023-02-01" max="2024-12-31"/>
+            <br>
+            <label for="customDate2"><b>Custom date 2:</b></label>
+            <input type="date" id="customDate2" name="customDate2" value="" min="2023-02-01" max="2024-12-31"/>
+            <br>
+            <label for="customDate3"><b>Custom date 3:</b></label>
+            <input type="date" id="customDate3" name="customDate3" value="" min="2023-02-01" max="2024-12-31"/>
+            <br>
+            <label for="customDate4"><b>Custom date 4:</b></label>
+            <input type="date" id="customDate4" name="customDate4" value="" min="2023-02-01" max="2024-12-31"/>
+            <br>
+
+
+
+
+        </div>
+        <h2>Add Team Members to the Project!</h2>
+        <tr>
+            <th>E-mail</th>
+            <th>Employee Nr</th>
+            <th>Name</th>
+            <th>Add</th>
+        </tr>
+        <% for (const row of res) { %>
+        <tr>
+            <td><%= row.email %></td>
+            <td><%= row.employee_id %></td>
+            <td><%= row.fornamn %> <%= row.efternamn %></td>
+            <td><input class="projectMember" type="checkbox" name="projectMember" value="<%= row.email %>"></td>
+        </tr>
+        <% }; %>
+        <br>
+
+    </form>
+</table>
+
+<%- include("footer"); %>

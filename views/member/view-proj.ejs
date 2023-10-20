@@ -1,0 +1,22 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show My Projects</h1>
+
+<% if (locals.projInfo.projectList) { %>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Summary</th>
+            <th>Members</th>
+        </tr>
+    <% for (const row of projInfo.projectList) { %>
+        <tr>
+            <td><%= row[0].name %></td>
+            <td><%= row[0].summary %></td>
+            <td><%= row[0].members %></td>
+        </tr>
+    <% }; %>    
+    </table>
+<% }; %>
+
+<%- include("footer"); %>

@@ -1,0 +1,333 @@
+        //const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+        //cb(null, file.fieldname + '-' + uniqueSuffix);
+
+/*
+async function checkIfLoggedIn(someCookie) {
+    if (!someCookie){
+        return 0;
+    }
+    return 1;
+}
+*/
+
+
+
+
+
+    /*
+    try {
+        console.log("search");
+        console.log("search route token from cookie: " + req.cookies.tokenTest.token);
+        if (!req.cookies.tokenTest.token) {
+            throw new Error
+        }
+    } catch(error) {
+        return res.render("pulse/login", {title: "Project Pulse", error: "User Not Logged In"});
+    }
+    */
+
+
+
+        /*
+    let url = "http://localhost:1337/pulse/authenticate";
+    const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data.headers), // body data type must match "Content-Type" header
+    });
+    const authToken = await response.json();
+    console.log(authToken);
+    */
+    //res.json({ auth: `${ token }` });
+    //res.append('auth', `${ token }`);
+
+
+
+//app.use("/", routeIndex);
+// anledningen att vi skriver tex /login på en route i route/pulse.js
+// är att det är här vi specificerar att just de routerna ska aktiveras
+// när vi är i /pulse/index och inte /index, eftersom vi har skrivit det här.
+// det är ju här vi faktiskt använder routerna i vår applikation genom app.use()
+
+
+/*
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
+const { requiresAuth } = require('express-openid-connect');
+
+app.get('/profile', requiresAuth(), (req, res) => {
+    res.send(JSON.stringify(req.oidc.user));
+});
+*/
+
+
+//const bodyParser = require("body-parser");
+//const urlencodedParser = bodyParser.urlencoded({ extended: true });
+/*
+const { auth } = require('express-openid-connect');
+
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: 'b4824a3640e082ad2ba119efb8447d0da60862c63ae5e7ca4656c74ba8858b64',
+    baseURL: 'http://localhost:1337',
+    clientID: 'CEQDx775m9EuIvyPWeRv68SVaikwpHrZ',
+    issuerBaseURL: 'https://dev-pddn18rtdqw0sdsy.us.auth0.com'
+};
+
+*/
+
+
+        /*
+        localStorage.setItem("auth", token);
+        let storageToken = localStorage.getItem("auth");
+        console.log("checkToken from AUTH MIDDLEWARE: " + storageToken);
+        
+        //res.status(200).json(token);
+        //res.token = token;
+        */
+
+
+
+    /*
+    console.info(JSON.stringify(req.body));
+    console.info(`${req}`);
+    console.info(`${req.body}`);
+    console.info(`${req.body.info}`);
+    console.info("trying to access csv data");
+    console.info(`${req.body.csvFile}`);
+    */
+
+
+        /*
+    console.log("auth route");
+    const token = req.cookies.tokenTest.token;
+    console.log("AUTHENTICATING TOKEN: " + token);
+    if (!token) {
+        console.log("no token!");
+        return res.status(403).send("A token is required for authentication");
+    }
+    */
+
+
+
+// UNUSED MONGO MIDDLEWARE
+function loggedInCheck(req, res, next) {
+    try {
+        authority = sessionStorage.getItem("authority");
+        console.log(authority)
+        if (authority === null){
+            throw new Error
+        }
+    } catch(error) {
+        return res.render("pulse/login", {title: "Project Pulse", error: "Wrong password"});
+    }    
+    next();
+}
+
+
+
+// redirect to correct after LOGIN
+router.get("/manager/redirectUser", async (req, res) => {
+    // denna funkar inte eftersom det är i en route där jag inte har satt cookiesarna?
+
+    let data = {
+        title: "Pulse"
+    }
+    res.render("login", data);
+});
+
+// redirect to correct after LOGIN
+router.get("/member/redirectUser", async (req, res) => {
+    // denna funkar inte eftersom det är i en route där jag inte har satt cookiesarna?
+    console.log("redirect route");
+    console.log(req.cookies.tokenCookie);
+
+    console.log("redirect route " + req.cookies.userAuth);
+    /*
+    if (req.cookies.userAuth == '1' || 1 ) {
+        console.log("AUTHORITY 1");
+        res.redirect("/member");
+    } else if (req.cookies.userAuth == '0'|| 0 ){
+        console.log("AUTHORITY 0?");
+        res.redirect("/manager");
+    }
+    */
+    let data = {
+        title: "Pulse"
+    }
+    res.render("login", data);
+});
+
+*/
+
+
+
+--SHOW WARNINGS;
+/*
+DROP PROCEDURE IF EXISTS create_users_csv;
+DELIMITER ;;
+CREATE PROCEDURE create_users_csv(
+    p_id INT,
+    p_auth INT,
+    p_fornamn VARCHAR(100),
+    p_efternamn VARCHAR(100),
+    p_email VARCHAR (100),
+    p_telefon VARCHAR (100)
+)
+BEGIN
+
+    INSERT INTO
+        persons (`employee_id`, `authorization`, `fornamn`, `efternamn`, `email`, `telefon`)
+    VALUES
+        (p_id, p_auth, p_fornamn, p_efternamn, p_email, p_telefon)
+    ;
+
+    INSERT INTO
+        passwords (`fk_person`, `password`)
+    VALUES
+        (p_id, "1234")
+    ;
+
+END
+;;
+DELIMITER ;
+*/
+
+
+
+    /*
+    let project;
+    // denna kan jag kanske byta mot ett "ok" meddelande? 
+    project = await functions.viewProject(projectName);
+    */
+    /*
+    let data = {
+        title: "Project Pulse",
+        projInfo: {
+            projectName: projectName,
+            projectSummary: projectSummary,
+            projectMembers: projectMembers,
+            project: project
+        }
+    };
+    */
+"use strict";
+
+
+module.exports = {
+    mailMe: mailMe
+};
+
+require("dotenv").config()
+const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        type: 'OAuth2',
+        user: process.env.MAIL_USERNAME,
+        pass: process.env.MAIL_PASSWORD,
+        clientId: process.env.OAUTH_CLIENT_ID,
+        clientSecret: process.env.OAUTH_CLIENT_SECRET,
+        refreshToken: process.env.OAUTH_REFRESH_TOKEN
+    }
+});
+
+
+let mailOptions = {
+    from: "pulsemanager2@gmail.com",
+    to: "pulsemanager2@gmail.com",
+    subject: 'Nodemailer Project',
+    text: 'Hi from your nodemailer project'
+};
+
+
+// async..await is not allowed in global scope, must use a wrapper
+async function mailMe() {
+    transporter.sendMail(mailOptions, function(err, data) {
+        if (err) {
+            console.log("Error " + err);
+        } else {
+            console.log("Email sent successfully");
+        }
+    });
+}
+
+"use strict";
+
+
+module.exports = {
+    sendEmail: sendEmail
+};
+
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+    host: "http://localhost:1337",
+    port: 1337,
+    secure: true,
+    auth: {
+        // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+        user: 'REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM',
+        pass: 'REPLACE-WITH-YOUR-GENERATED-PASSWORD'
+    }
+});
+
+// async..await is not allowed in global scope, must use a wrapper
+async function mainer() {
+    // send mail with defined transport object
+    const info = await transporter.sendMail({
+        from: '"Fred Foo 👻" <foo@example.com>', // sender address
+        to: "bar@example.com, baz@example.com", // list of receivers
+        subject: "Hello ✔", // Subject line
+        text: "Hello world?", // plain text body
+        html: "<b>Hello world?</b>", // html body
+    });
+
+    console.log("Message sent: %s", info.messageId);
+}
+
+//mainer().catch(console.error);
+// project_manager2@yahoo.com
+// AJ$sK6#zH5C_&Er
+async function sendEmail(users) {
+    
+    for (const user in users){
+        const info = await transporter.sendMail({
+            from: '"teammembermail1@gmail.com', // sender address
+            to: "axel.oj@outlook.com", // list of receivers
+            subject: "Welcome to Project Pulse ✔", // Subject line
+            text: `Hello ${user}! This email contains your new password. Use this email to login!`, // plain text body
+            html: "<b>Hello! This email contains your new password. Use this email to login!</b>", // html body
+        });
+        console.log("Message sent: %s", info.messageId);
+    }
+
+    console.log("new users in email func", users);
+    return users;
+}
+
+    // här? hämta ut email från filen och spara i lista. skicka sedan listan til funktion som skickar ut email?
+    // går det att hämta ut email från filen på det viset?
+    // annars, skapa ny column i databasen för de som fått email och inte. typ default 0
+    // kalla sedan på proceduren where default != 0 och skicka sedan email till de personerna.
+
+        // console.log nedan skrivs  ut före await create_.._csv loggningarna av ngn anledning
+    //console.log("NEW USERS AFTER:  \n", new_users, '\n users after');

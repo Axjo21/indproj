@@ -1,0 +1,45 @@
+<%- include("header", {title: title}); %>
+
+<h1>Search in the Database</h1>
+
+<form id="form">
+    <label for="showSearch">Search:</label><br>
+    <input type="text" id="showSearch" name="showSearch"><br>
+    <br>
+    <br>
+    <input type="submit" id="submit" name="submit" value="Search">
+</form>
+
+
+
+<% if (locals.one) { %>
+
+<div><h2> Din sökning </h2></div>
+<table>
+    <tr>
+        <th>Logg ID</th>
+        <th>Katerogi</th>
+        <th>Nivå</th>
+        <th>Person ID</th>
+        <th>Personnamn</th>
+        <th>Organisation ID</th>
+        <th>Organisationsnamn</th>
+        <th>Vad</th>
+    </tr>
+<% for (const row of one) { %>
+    <tr>
+        <td><%= row.loggid %></td>
+        <td><%= row.kategori %></a></td>
+        <td><%= row.niva %></a></td>
+        <td><%= row.personid %></td>
+        <td><%= row.personnamn %></td>
+        <td><%= row.orgid %></td>
+        <td><%= row.organisation %></td>
+        <td><%= row.vad %></td>
+    </tr>
+<% }; %>
+</table>
+
+<% }; %>
+
+<%- include("footer"); %>

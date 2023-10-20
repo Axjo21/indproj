@@ -1,0 +1,47 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show Single Reports</h1>
+
+
+
+<% if (locals.report) { %>
+<%= console.log(report) %>
+<h2>Report Id: <%= report[0].id %> </h2>
+<table>
+    <tr>
+        <th>Member</th>
+        <th>Project</th>
+        <th>Deadline</div></th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td><%= report[0].member %></td>
+        <td><%= report[0].project %></td>
+        <td><%= report[0].deadline %></td>
+        <td><%= report[0].status %></td>
+    </tr>
+</table>
+<% if (report[0].status == "Read") { %>
+<div class="reportDiv">
+    <p><%= report[0].content %></p>
+</div>
+<% }; %>
+
+<% if (report[0].comment != "") { %>
+<p><b>Managers comment:</b></p>
+<div><%= report[0].comment %></div>
+<% }; %>
+
+<% if (report[0].comment == "" && report[0].status == "Read") { %>
+<form method="post" action="/manager/comment/<%= report[0].id %>">
+    <label for="reportComment"><b><h2>Write your comment below!</h2></b></label><br>
+    <textarea id="reportComment" placeholder="Write your comment here.." name="reportComment" rows="20" cols="60" required>
+    </textarea><br>
+    <input class="submitCreate" type="submit" name="doit" value="Submit Comment">
+</form>
+<% }; %>
+
+<% }; %>
+
+<%- include("footer"); %>
+

@@ -1,0 +1,22 @@
+<%- include("header", {title: title}); %>
+
+<h1>Create new Project</h1>
+
+
+<img src="/img/snowy-mountains.jpg" width="700px" alt="Mountains">
+
+
+<form id="createProjForm" method="post" action="/pulse/init-project">
+    <div class="container">
+        <label for="projectName"><b>Project Name</b></label>
+        <input id="projectName" type="text" placeholder="Enter Project Name" name="projectName" required>
+        <br>
+        <label for="projectSummary"><b>Summary</b></label>
+        <input id="projectSummary" type="text" placeholder="Tell something about the project" name="projectSummary" required>
+        <br>
+        <input class="submit" type="submit" name="doit" value="Create Project">
+    </div>
+</form> 
+
+
+<%- include("footer"); %>

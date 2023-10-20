@@ -1,0 +1,26 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show All Team Members</h1>
+
+<table>
+    <tr>
+        <th>E-mail</th>
+        <th>Employee-ID</th>
+        <th>Förnamn</th>
+        <th>Efternamn</th>
+        <th>Telefon</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.email %></td>
+        <td><%= row.employee_id %></td>
+        <td><%= row.fornamn %></td>
+        <td><%= row.efternamn %></td>
+        <td><%= row.telefon %></td>
+    </tr>
+<% }; %>
+</table>
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+
+<%- include("footer"); %>

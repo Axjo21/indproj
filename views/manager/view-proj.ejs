@@ -1,0 +1,36 @@
+<%- include("header", {title: title}); %>
+
+<h1>Show All Projects</h1>
+
+<pre><%= JSON.stringify(projInfo.projectName, null, 4) %></pre>
+
+
+<pre><%= JSON.stringify(projInfo.projectSummary, null, 4) %></pre>
+
+
+<pre><%= JSON.stringify(projInfo.projectMembers, null, 4) %></pre>
+
+
+
+<% if (locals.projInfo.projectList) { %>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Summary</th>
+            <th class="members"></div class="membersContent">Members</div></th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+    <% for (const row of projInfo.projectList) { %>
+        <tr>
+            <td><%= row[0].name %></td>
+            <td><%= row[0].summary %></td>
+            <td><%= row[0].members %></td>
+            <td><%= row[0].start %></td>
+            <td><%= row[0].end %></td>
+        </tr>
+    <% }; %>    
+    </table>
+<% }; %>
+
+<%- include("footer"); %>

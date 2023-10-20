@@ -1,0 +1,26 @@
+<%- include("header", {title: title}); %>
+
+<h1>Project successfully created!</h1>
+
+
+
+<% if (locals.project) { %>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Summary</th>
+        <th class="members"></div class="membersContent">Members</div></th>
+        <th>Start</th>
+        <th>End</th>
+    </tr>
+    <tr>
+        <td><%= project[0].name %></td>
+        <td><%= project[0].summary %></td>
+        <td><%= project[0].members %></td>
+        <td><%= project[0].start %></td>
+        <td><%= project[0].end %></td>
+    </tr>
+</table>
+<% }; %>
+
+<%- include("footer"); %>

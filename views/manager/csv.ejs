@@ -1,0 +1,114 @@
+<%- include("header", {title: title}); %>
+
+<h1>Create new Team Members</h1>
+
+
+<img src="/img/snowy-mountains.jpg" width="700px" alt="Mountains">
+
+
+
+<form id="csvForm" method="post" enctype="multipart/form-data" action="/manager/parse-csv">
+    <label class="formLabel" for="uploaded_file">Submit CSV File to create new team members!</label><br>
+    <input id="csvFile" type="file" name="uploaded_file" accept=".csv">
+    <br>
+    <input class="submit" type="submit" value="Submit CSV file"></input>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- onchange="readFile(this)" <-- satt på input csvFile
+<input type="file" onchange="readFile(this)"> -->
+
+
+<% if (locals.results) { %>
+
+    <div><h2> Din CSV </h2></div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Produkt ID</th>
+            <th>Produkt</th>
+            <th>Antal</th>
+        </tr>
+        <% for (const row of results) { %>
+        <tr>
+            <td><%= row %></a></td>
+        </tr>
+        <% }; %>
+    </table>
+    
+<% }; %>
+
+<script>
+    /*
+    function parseCsv(input) {
+        let file = input.files[0];
+        let reader = new FileReader();
+
+        reader.readAsText(file);
+
+        reader.onload = function() {
+            console.log(reader.result);
+            console.log(reader.result[0]);
+            console.log(reader.result);
+            fs.writeFile("temp.csv", reader.result);
+        };
+
+        reader.onerror = function() {
+            console.log(reader.error);
+        };
+
+        const results = [];
+
+        fs.createReadStream('temp.csv')
+            .pipe(csv())
+            .on('data', (data) => results.push(data))
+            .on('end', () => {
+                console.log(results);
+        });
+
+        return results;
+    }
+    */
+
+    /*
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", logSubmit);
+
+    function logSubmit(event) {
+        log.textContent = `Form Submitted! Timestamp: ${event.target.value}`;
+        event.preventDefault();
+    }
+
+    let ourFile = document.getElementById('csvFile').innerHTML;
+    */
+    
+    /*
+    function readFile(input) {
+        let submissionForm = document.getElementById("submitForm");
+        let submittedFile = document.getElementById("csvFile");
+        let file = input.files[0];
+
+        let reader = new FileReader();
+
+        reader.readAsText(file);
+
+        reader.onload = function() {
+            console.log(reader.result);
+            submittedFile.fileData = reader.result;
+            console.log("fileData = " + document.getElementById("csvFile").fileData);
+        };
+
+        reader.onerror = function() {
+            console.log(reader.error);
+        };
+
+    }
+    */
+</script>
+
+<%- include("footer"); %>
