@@ -178,7 +178,8 @@ router.post("/init-project", async (req, res) => {
             for (const member of projectMembers) {
                 console.log(member);
                 console.log(projectMembers[member]);
-                //await functions.createSingleReport(projectMembers[member], projectName, customDate);
+                console.log("creating single report");
+                await functions.createSingleReport(member, projectName, customDate);
             }
         }
     }
