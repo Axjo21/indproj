@@ -11,7 +11,8 @@ hidden: true
 
 ## General information about the project. <br>
 
-The project is developed using Node.js and Express.js and the main app is in the root of the project, "app.js". Type "node app.js" in the terminal to start the application.
+The project is developed using Node.js and Express.js and the main app is in the root of the project, "app.js". Type "node app.js" in the terminal to start the application. The application will then run on "localhost:1337".
+"localhost:1337/manager" is hope-page for managers. "localhost:1337/member" is the home page for members, and "localhost:1337" is the login page. Based on who you log in as, you get redirected to propper route and have access to the proper data. 
 
 In app.js the application is initialized with port etc. 
 Middleware and routes are used.
@@ -25,6 +26,8 @@ Much of the functionality is dictated by the manager.js and member.js routes.
 These routes make function calls to functions in "/src", which in turn often makes call to database procedures in "sql/pulse".
 
 The database that's used is MariaDB.
+The database is backuped in "backup.sql". 
+See config/db/pulse.json for database user and password.
 
 The application implements role based authentication using JWT.
 The application sends out mails to new members using Nodemailer and Gmail.
